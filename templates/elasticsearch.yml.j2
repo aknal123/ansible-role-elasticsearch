@@ -31,11 +31,11 @@
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-# path.data: /path/to/data
+path.data: {{ elasticsearch_path_data }}
 #
 # Path to log files:
 #
-# path.logs: /path/to/logs
+path.logs: {{ elasticsearch_path_logs }}
 #
 # ----------------------------------- Memory -----------------------------------
 #
@@ -66,11 +66,11 @@ http.port: {{ elasticsearch_http_port }}
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-# discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+# discovery.zen.ping.unicast.hosts: {{ elasticsearch_discovery_zen_ping_unicast_hosts }}
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of nodes / 2 + 1):
 #
-# discovery.zen.minimum_master_nodes: 3
+discovery.zen.minimum_master_nodes: {{ elasticsearch_discovery_zen_minimum_master_nodes }}
 #
 # For more information, see the documentation at:
 # <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery.html>
@@ -88,7 +88,7 @@ http.port: {{ elasticsearch_http_port }}
 #
 # Disable starting multiple nodes on a single system:
 #
-# node.max_local_storage_nodes: 1
+node.max_local_storage_nodes: {{ node_max_local_storage_nodes }}
 #
 # Require explicit names when deleting indices:
 #

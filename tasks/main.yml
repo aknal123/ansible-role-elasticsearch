@@ -5,6 +5,11 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- file:
+    path: /usr/share/elasticsearch/data
+    state: directory
+    mode: 0777
+
 - name: Configure Elasticsearch.
   template:
     src: elasticsearch.yml.j2

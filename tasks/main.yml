@@ -12,12 +12,13 @@
 
 - name: Configure Elasticsearch.
   template:
-    src: elasticsearch.yml.j2
+    src: '{{ balfour_elasticsearch_config_yml }}'
     dest: /etc/elasticsearch/elasticsearch.yml
     owner: root
     group: elasticsearch
     mode: 0750
   notify: restart elasticsearch
+  tags: ['configyml']
 
 - name: Start Elasticsearch.
   service: name=elasticsearch state=started enabled=yes

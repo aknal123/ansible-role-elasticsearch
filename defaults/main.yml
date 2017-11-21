@@ -8,3 +8,7 @@ elasticsearch_path_logs: /var/log/elasticsearch/elasticsearch
 elasticsearch_discovery_zen_ping_unicast_hosts: ["{{ inventory_hostname }}"] # multiple hostnames separated by comma
 elasticsearch_discovery_zen_minimum_master_nodes: 1
 node_max_local_storage_nodes: 3
+elasticsearch_cluster_name: 'retailshop-{{retailshop_env}}-elasticsearch'
+elasticsearch_node_name: 'retailshop-{{retailshop_env}}-elasticsearch-{{retailshop_role}}_{{ inventory_hostname }}'
+elasticsearch_role: '{{ retailshop_role }}'
+balfour_elasticsearch_config_yml: elasticsearch.yml.j2
